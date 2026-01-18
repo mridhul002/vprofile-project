@@ -20,7 +20,7 @@ cd /tmp/
 git clone -b main https://github.com/mridhul002/vprofile-project.git
 
 # Configure MariaDB root password
-sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '$DATABASE_PASS';"
+sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$DATABASE_PASS';"
 
 # Secure MariaDB (similar to mysql_secure_installation)
 sudo mysql -u root -p"$DATABASE_PASS" -e "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1')"
